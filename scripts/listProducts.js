@@ -25,7 +25,37 @@ export const listProducts = () => {
         const editButton = document.createElement("button");
         editButton.innerText = "EDIT";
         editButton.addEventListener("click", () => {
-            // Logica para editar datos de un producto
+            const productName = document.getElementById("product-name-input");
+            const productQuantity = document.getElementById(
+                "product-quantity-input"
+            );
+            const productPrice = document.getElementById("product-price-input");
+            const addEditBtn = document.getElementById("add-edit-button");
+
+            productName.value = item.name;
+            productQuantity.value = item.quantity;
+            productPrice.value = item.price;
+
+            const editButtons = document.getElementById(
+                "add-edit-buttons-wrapper"
+            );
+
+            // CANCEL BUTTON
+            if (!document.getElementById("cancel-button")) {
+                const cancelButton = document.createElement("button");
+                cancelButton.innerText = "Cancel";
+                // Set an id to the cancel button to avoid creating multiple cancel buttons
+                cancelButton.id = "cancel-button";
+                editButtons.appendChild(cancelButton);
+
+                cancelButton.addEventListener("click", () => {
+                    editButtons.removeChild(cancelButton);
+                    addEditBtn.innerText = "Add new";
+
+                });
+            }
+
+            addEditBtn.innerText = "Update";
         });
         actionsCell.appendChild(editButton);
 

@@ -76,7 +76,12 @@ body {
 .sidebar-bottom h2 {
     font-size: 1.2em;
 }
+.add-edit-buttons-wrapper{
+    display: flex;
+    gap: 5px;
+}
 .sidebar-bottom button {
+    width: 100%;
     padding: 10px;
     border-radius: 15px;
     border: none;
