@@ -15,7 +15,7 @@
             <h1>Apple Inc.</h1>
 
             <div class="sidebar-card">
-                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                     <path fill="#363A3F"
                         d="M8 17q.425 0 .713-.288T9 16q0-.425-.288-.713T8 15q-.425 0-.713.288T7 16q0 .425.288.713T8 17Zm0-4q.425 0 .713-.288T9 12q0-.425-.288-.713T8 11q-.425 0-.713.288T7 12q0 .425.288.713T8 13Zm0-4q.425 0 .713-.288T9 8q0-.425-.288-.713T8 7q-.425 0-.713.288T7 8q0 .425.288.713T8 9Zm3 8h6v-2h-6v2Zm0-4h6v-2h-6v2Zm0-4h6V7h-6v2ZM5 21q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21H5Z" />
                 </svg>
@@ -26,6 +26,13 @@
         <main>
             <h1>Inventory</h1>
 
+            <div class="total-inventory-wrapper">
+                <div class="total-inventory">
+                    <span>Total Inventory</span>
+                    <span id="total-inventory-value">0</span>
+                </div>
+            </div>
+
             <div class="search-wrapper">
                 <input id="search-input" type="text" placeholder="Search by name">
                 <button>Search</button>
@@ -33,13 +40,13 @@
             </div>
 
             <div class="add-edit-wrapper">
-                <input type="text" placeholder="Product name">
-                <input type="number" placeholder="Product quantity">
-                <input type="number" placeholder="Product price">
+                <input type="text" placeholder="Product name" id="product-name-input">
+                <input type="number" placeholder="Product quantity" id="product-quantity-input">
+                <input type="number" placeholder="Product price" id="product-price-input">
                 <button>Add/Update</button>
             </div>
 
-            <table>
+            <table class="inventory-table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -49,7 +56,7 @@
                     </tr>
                 </thead>
 
-                <tbody id="inventory-data"></tbody>
+                <tbody id="inventory-table-data"></tbody>
             </table>
         </main>
     </div>
