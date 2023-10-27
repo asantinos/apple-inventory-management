@@ -26,7 +26,18 @@
         <main>
             <h1>Inventory</h1>
 
-            <input id="search-input" type="text" placeholder="Search by name">
+            <div class="search-wrapper">
+                <input id="search-input" type="text" placeholder="Search by name">
+                <button>Search</button>
+                <button>Add new</button>
+            </div>
+
+            <div class="add-edit-wrapper">
+                <input type="text" placeholder="Product name">
+                <input type="number" placeholder="Product quantity">
+                <input type="number" placeholder="Product price">
+                <button>Add/Update</button>
+            </div>
 
             <table>
                 <thead>
@@ -38,11 +49,12 @@
                     </tr>
                 </thead>
 
-                <tbody id="table-data"></tbody>
+                <tbody id="inventory-data"></tbody>
             </table>
-
         </main>
     </div>
+
+    <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>
