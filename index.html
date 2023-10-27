@@ -12,14 +12,48 @@
 <body>
     <div class="container">
         <aside class="sidebar">
-            <h1>Apple Inc.</h1>
+            <div class="sidebar-top">
+                <div class="title-wrapper">
+                    <img width="50px" src="assets/img/apple-logo.png" alt="Apple Logo">
+                    <h1>Apple Inc.</h1>
+                </div>
+                <div class="sidebar-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <path fill="#363A3F"
+                            d="M8 17q.425 0 .713-.288T9 16q0-.425-.288-.713T8 15q-.425 0-.713.288T7 16q0 .425.288.713T8 17Zm0-4q.425 0 .713-.288T9 12q0-.425-.288-.713T8 11q-.425 0-.713.288T7 12q0 .425.288.713T8 13Zm0-4q.425 0 .713-.288T9 8q0-.425-.288-.713T8 7q-.425 0-.713.288T7 8q0 .425.288.713T8 9Zm3 8h6v-2h-6v2Zm0-4h6v-2h-6v2Zm0-4h6V7h-6v2ZM5 21q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21H5Z" />
+                    </svg>
+                    <span>Inventory</span>
+                </div>
+            </div>
 
-            <div class="sidebar-card">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                    <path fill="#363A3F"
-                        d="M8 17q.425 0 .713-.288T9 16q0-.425-.288-.713T8 15q-.425 0-.713.288T7 16q0 .425.288.713T8 17Zm0-4q.425 0 .713-.288T9 12q0-.425-.288-.713T8 11q-.425 0-.713.288T7 12q0 .425.288.713T8 13Zm0-4q.425 0 .713-.288T9 8q0-.425-.288-.713T8 7q-.425 0-.713.288T7 8q0 .425.288.713T8 9Zm3 8h6v-2h-6v2Zm0-4h6v-2h-6v2Zm0-4h6V7h-6v2ZM5 21q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21H5Z" />
-                </svg>
-                <span>Inventory</span>
+            <div class="sidebar-bottom">
+                <h2>Add/Edit product</h2>
+
+                <div class="input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                        <path fill="#363A3F"
+                            d="m20.175 13.15l-3.525 5q-.275.4-.712.625T15 19H5q-.825 0-1.413-.588T3 17V7q0-.825.588-1.413T5 5h10q.5 0 .938.225t.712.625l3.525 5q.375.525.375 1.15t-.375 1.15ZM15 17l3.55-5L15 7H5v10h10ZM5 7v10V7Z" />
+                    </svg>
+                    <input type="text" placeholder="Product name" id="product-name-input">
+                </div>
+
+                <div class="input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="-5 -5 24 24">
+                        <path fill="#363A3F"
+                            d="M6 6v2h2V6H6zm0-2h2V1a1 1 0 1 1 2 0v3h3a1 1 0 0 1 0 2h-3v2h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3H6v3a1 1 0 0 1-2 0v-3H1a1 1 0 1 1 0-2h3V6H1a1 1 0 1 1 0-2h3V1a1 1 0 1 1 2 0v3z" />
+                    </svg>
+                    <input type="number" placeholder="Product quantity" id="product-quantity-input">
+                </div>
+
+                <div class="input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                        <path fill="#363A3F"
+                            d="m13.95 18.175l4.95-4.95q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-5.65 5.65q-.3.3-.7.3t-.7-.3l-2.85-2.85q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l2.15 2.15Zm-7.45-4.2H5q-.425 0-.713-.287T4 12.975q0-.425.288-.712T5 11.975h4v-2H5q-.425 0-.713-.287T4 8.975v-4q0-.425.288-.712T5 3.975h1.5q0-.425.288-.713t.712-.287q.425 0 .713.288t.287.712H10q.425 0 .713.288t.287.712q0 .425-.288.713T10 5.975H6v2h4q.425 0 .713.288t.287.712v4q0 .425-.288.713t-.712.287H8.5q0 .425-.288.713t-.712.287q-.425 0-.713-.287t-.287-.713Z" />
+                    </svg>
+                    <input type="number" placeholder="Product price" id="product-price-input">
+                </div>
+
+                <button id="add-edit-button">Add/Update</button>
             </div>
         </aside>
 
@@ -34,16 +68,14 @@
             </div>
 
             <div class="search-wrapper">
-                <input id="search-input" type="text" placeholder="Search by name">
+                <div class="input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                        <path fill="none" stroke="#363A3F" stroke-linecap="round" stroke-width="2"
+                            d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z" />
+                    </svg>
+                    <input id="search-input" type="text" placeholder="Search by name">
+                </div>
                 <button>Search</button>
-                <button>Add new</button>
-            </div>
-
-            <div class="add-edit-wrapper">
-                <input type="text" placeholder="Product name" id="product-name-input">
-                <input type="number" placeholder="Product quantity" id="product-quantity-input">
-                <input type="number" placeholder="Product price" id="product-price-input">
-                <button>Add/Update</button>
             </div>
 
             <table class="inventory-table">
