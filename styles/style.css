@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+    width: 350px;
+    height: 100vh;
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+main {
+    margin-left: 350px;
+}

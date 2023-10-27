@@ -2,4 +2,4 @@
 
 **Author**: Alejandro Santos Garcia
 
-**Github Repository**: 
+**Github Repository**: https://github.com/asantinos/apple-inventory-management
