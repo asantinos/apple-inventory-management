@@ -3,10 +3,12 @@ import { inventory } from "./products.js";
 export const listProducts = () => {
     const inventoryData = document.getElementById("inventory-table-data");
 
+    // DELETE ALL ROWS TO AVOID DUPLICATES
     while (inventoryData.firstChild) {
         inventoryData.removeChild(inventoryData.firstChild);
     }
 
+    // CREATE ROWS FOR EACH PRODUCT
     inventory.forEach((item) => {
         const dataRow = inventoryData.insertRow();
 
@@ -29,6 +31,9 @@ export const listProducts = () => {
             const productQuantity = document.getElementById(
                 "product-quantity-input"
             );
+            const editButtons = document.getElementById(
+                "add-edit-buttons-wrapper"
+            );
             const productPrice = document.getElementById("product-price-input");
             const addEditBtn = document.getElementById("add-edit-button");
 
@@ -36,22 +41,22 @@ export const listProducts = () => {
             productQuantity.value = item.quantity;
             productPrice.value = item.price;
 
-            const editButtons = document.getElementById(
-                "add-edit-buttons-wrapper"
-            );
-
             // CANCEL BUTTON
             if (!document.getElementById("cancel-button")) {
                 const cancelButton = document.createElement("button");
                 cancelButton.innerText = "Cancel";
+
                 // Set an id to the cancel button to avoid creating multiple cancel buttons
                 cancelButton.id = "cancel-button";
                 editButtons.appendChild(cancelButton);
 
+                // Change buttons and empty inputs
                 cancelButton.addEventListener("click", () => {
                     editButtons.removeChild(cancelButton);
+                    productName.value = "";
+                    productQuantity.value = "";
+                    productPrice.value = "";
                     addEditBtn.innerText = "Add new";
-
                 });
             }
 
@@ -64,10 +69,12 @@ export const listProducts = () => {
         deleteButton.innerText = "DELETE";
         deleteButton.addEventListener("click", () => {
             if (confirm(`Are you sure you want to delete ${item.name}?`)) {
+                // Search index of the product to delete
                 const index = inventory.findIndex(
                     (product) => product.id === item.id
                 );
 
+                // It returns -1 if the product is not found
                 if (index !== -1) {
                     inventory.splice(index, 1);
                     dataRow.remove();

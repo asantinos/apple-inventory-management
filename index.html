@@ -53,44 +53,47 @@
                     <input type="number" placeholder="Product price" id="product-price-input">
                 </div>
 
-                <div class="add-edit-buttons-wrapper" id="add-edit-buttons-wrapper"><button id="add-edit-button"></button></div>
-            </div>
-        </aside>
-
-        <main>
-            <h1>Inventory</h1>
-
-            <div class="total-inventory-wrapper">
-                <div class="total-inventory">
-                    <span>Total Inventory</span>
-                    <span id="total-inventory-value">0</span>
+                <div class="add-edit-buttons-wrapper" id="add-edit-buttons-wrapper">
+                    <button id="add-edit-button">Add new</button>
                 </div>
             </div>
+    </div>
+    </aside>
 
-            <div class="search-wrapper">
-                <div class="input-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
-                        <path fill="none" stroke="#363A3F" stroke-linecap="round" stroke-width="2"
-                            d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z" />
-                    </svg>
-                    <input id="search-input" type="text" placeholder="Search by name">
-                </div>
-                <button>Search</button>
+    <main>
+        <h1>Inventory</h1>
+
+        <div class="total-inventory-wrapper">
+            <div class="total-inventory">
+                <span>Total Inventory</span>
+                <span id="total-inventory-value">0</span>
             </div>
+        </div>
 
-            <table class="inventory-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
+        <div class="search-wrapper">
+            <div class="input-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                    <path fill="none" stroke="#363A3F" stroke-linecap="round" stroke-width="2"
+                        d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z" />
+                </svg>
+                <input id="search-input" type="text" placeholder="Search by name">
+            </div>
+            <button>Search</button>
+        </div>
 
-                <tbody id="inventory-table-data"></tbody>
-            </table>
-        </main>
+        <table class="inventory-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="inventory-table-data"></tbody>
+        </table>
+    </main>
     </div>
 
     <script type="module" src="scripts/main.js"></script>

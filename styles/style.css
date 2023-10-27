@@ -9,6 +9,10 @@ body {
     color: #363a3f;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* INPUTS WITH ICONS */
 .input-wrapper {
     background-color: #f8f8f8;
@@ -76,7 +80,7 @@ body {
 .sidebar-bottom h2 {
     font-size: 1.2em;
 }
-.add-edit-buttons-wrapper{
+.add-edit-buttons-wrapper {
     display: flex;
     gap: 5px;
 }
@@ -85,7 +89,6 @@ body {
     padding: 10px;
     border-radius: 15px;
     border: none;
-    cursor: pointer;
 }
 
 /* MAIN */

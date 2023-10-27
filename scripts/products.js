@@ -4,6 +4,7 @@ const getRandomQuantity = () => {
     return Math.floor(Math.random() * 100) + 1;
 };
 
+// INVENTORY DATA
 const inventory = [
     { id: 1, name: "iPhone 13", quantity: getRandomQuantity(), price: 799.99 },
     { id: 2, name: "iPad Pro", quantity: getRandomQuantity(), price: 999.99 },

@@ -4,9 +4,7 @@
  */
 
 import { listProducts } from "./listProducts.js";
-
-const addEditBtn = document.getElementById("add-edit-button");
+import { addEditProduct } from "./addEditProduct.js";
 
 document.addEventListener("DOMContentLoaded", listProducts);
-
-addEditBtn.innerText = "Add new";
+document.addEventListener("DOMContentLoaded", addEditProduct);
