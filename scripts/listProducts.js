@@ -2,6 +2,10 @@ import { inventory } from "./products.js";
 
 export const listProducts = () => {
     const inventoryData = document.getElementById("inventory-table-data");
+    const productName = document.getElementById("product-name-input");
+    const productPrice = document.getElementById("product-price-input");
+    const productQuantity = document.getElementById("product-quantity-input");
+    const addEditButton = document.getElementById("add-edit-button");
 
     // DELETE ALL ROWS TO AVOID DUPLICATES
     while (inventoryData.firstChild) {
@@ -26,16 +30,11 @@ export const listProducts = () => {
         // EDIT BUTTON
         const editButton = document.createElement("button");
         editButton.innerText = "EDIT";
+        actionsCell.appendChild(editButton);
         editButton.addEventListener("click", () => {
-            const productName = document.getElementById("product-name-input");
-            const productQuantity = document.getElementById(
-                "product-quantity-input"
-            );
             const editButtons = document.getElementById(
                 "add-edit-buttons-wrapper"
             );
-            const productPrice = document.getElementById("product-price-input");
-            const addEditBtn = document.getElementById("add-edit-button");
 
             productName.value = item.name;
             productQuantity.value = item.quantity;
@@ -56,17 +55,46 @@ export const listProducts = () => {
                     productName.value = "";
                     productQuantity.value = "";
                     productPrice.value = "";
-                    addEditBtn.innerText = "Add new";
+                    addEditButton.innerText = "Add new";
                 });
             }
 
-            addEditBtn.innerText = "Update";
+            addEditButton.innerText = "Update";
+
+            // UPDATE PRODUCT
+            const updateProduct = () => {
+                if (
+                    productName.value !== "" &&
+                    productQuantity.value !== "" &&
+                    productPrice.value !== ""
+                ) {
+                    // Search index of the product to edit
+                    const index = inventory.find(
+                        (product) => product.id === item.id
+                    );
+
+                    if (index !== -1) {
+                        item.name = productName.value;
+                        item.quantity = productQuantity.value;
+                        item.price = productPrice.value;
+
+                        listProducts();
+                        console.log("Product updated");
+                    }
+                }
+            };
+
+            addEditButton.addEventListener("click", () => {
+                if (addEditButton.innerText === "Update") {
+                    updateProduct();
+                }
+            });
         });
-        actionsCell.appendChild(editButton);
 
         // DELETE BUTTON
         const deleteButton = document.createElement("button");
         deleteButton.innerText = "DELETE";
+        actionsCell.appendChild(deleteButton);
         deleteButton.addEventListener("click", () => {
             if (confirm(`Are you sure you want to delete ${item.name}?`)) {
                 // Search index of the product to delete
@@ -81,6 +109,5 @@ export const listProducts = () => {
                 }
             }
         });
-        actionsCell.appendChild(deleteButton);
     });
 };

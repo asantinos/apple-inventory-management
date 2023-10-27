@@ -96,3 +96,26 @@ main {
     margin-left: 350px;
     padding: 40px;
 }
+
+/* TOTAL INVENTORY */
+.total-inventory-wrapper {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #363a3f;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.total-inventory-icon {
+    background-color: #4E5256;
+    padding: 15px;
+    border-radius: 50%;
+}
+.total-inventory {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
