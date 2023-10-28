@@ -136,17 +136,35 @@ main {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 10px;
-}
-.inventory-table th,
-.inventory-table td {
-    border-bottom: 1px solid #e0e0e0;
-    text-align: left;
-    padding: 20px;
     color: #363a3f;
+    text-align: left;
 }
 .inventory-table th {
-    border: none;
-    color: #363a3f;
+    padding: 10px 20px;
     text-transform: uppercase;
     font-size: 0.9em;
+}
+.inventory-table td {
+    padding: 20px 20px 30px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.edit-button {
+    background-color: transparent;
+    color: #4784ce;
+    font-weight: 600;
+    border: none;
+    margin-right: 20px;
+}
+.delete-button {
+    background-color: transparent;
+    color: #ff4d4d;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    text-decoration: underline;
 }

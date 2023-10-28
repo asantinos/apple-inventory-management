@@ -30,6 +30,7 @@ export const listProducts = () => {
 
         // EDIT BUTTON
         const editButton = document.createElement("button");
+        editButton.className = "edit-button";
         editButton.innerText = "EDIT";
         actionsCell.appendChild(editButton);
         editButton.addEventListener("click", () => {
@@ -72,6 +73,7 @@ export const listProducts = () => {
 
         // DELETE BUTTON
         const deleteButton = document.createElement("button");
+        deleteButton.className = "delete-button";
         deleteButton.innerText = "DELETE";
         actionsCell.appendChild(deleteButton);
         deleteButton.addEventListener("click", () => {
