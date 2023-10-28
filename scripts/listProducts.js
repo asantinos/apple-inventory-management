@@ -1,4 +1,5 @@
 import { inventory } from "./products.js";
+import { showTotalInventory } from "./showTotalInventory.js";
 
 export const listProducts = () => {
     const inventoryData = document.getElementById("inventory-table-data");
@@ -84,6 +85,8 @@ export const listProducts = () => {
                 if (index !== -1) {
                     inventory.splice(index, 1);
                     dataRow.remove();
+
+                    showTotalInventory();
                 }
             }
         });

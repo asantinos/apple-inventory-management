@@ -1,5 +1,6 @@
 import { inventory } from "./products.js";
 import { listProducts } from "./listProducts.js";
+import { showTotalInventory } from "./showTotalInventory.js";
 
 export const addEditProduct = () => {
     const productName = document.getElementById("product-name-input");
@@ -23,6 +24,11 @@ export const addEditProduct = () => {
             });
 
             listProducts();
+            showTotalInventory();
+
+            productName.value = "";
+            productQuantity.value = "";
+            productPrice.value = "";
         }
     };
 
@@ -54,6 +60,7 @@ export const addEditProduct = () => {
                     addEditButton.innerText = "Add new";
 
                     listProducts();
+                    showTotalInventory();
                 }
             }
         }
