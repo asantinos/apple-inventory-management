@@ -4,7 +4,7 @@
  */
 
 import { listProducts } from "./listProducts.js";
-// import { addEditProduct } from "./addEditProduct.js";
+import { addEditProduct } from "./addEditProduct.js";
 
 document.addEventListener("DOMContentLoaded", listProducts);
-// document.addEventListener("DOMContentLoaded", addEditProduct);
+document.addEventListener("DOMContentLoaded", addEditProduct);

@@ -6,6 +6,7 @@ export const addEditProduct = () => {
     const productQuantity = document.getElementById("product-quantity-input");
     const productPrice = document.getElementById("product-price-input");
     const addEditButton = document.getElementById("add-edit-button");
+    const editButtons = document.getElementById("add-edit-buttons-wrapper");
 
     // ADD PRODUCT
     const addNewProduct = () => {
@@ -32,24 +33,27 @@ export const addEditProduct = () => {
             productQuantity.value !== "" &&
             productPrice.value !== ""
         ) {
-            for (const product of inventory) {
-                const index = inventory.findIndex(
-                    (product) => product.id === item.id
+            // Get the id of the product to edit (set in listProducts.js)
+            const productIdToUpdate = addEditButton.getAttribute("data-id");
+            console.log(productIdToUpdate);
+
+            if (productIdToUpdate) {
+                const productToUpdate = inventory.find(
+                    (product) => product.id === parseInt(productIdToUpdate)
                 );
 
-                // It returns -1 if the product is not found
-                if (
-                    index !== -1 &&
-                    productName.value !== "" &&
-                    productQuantity.value !== "" &&
-                    productPrice.value !== ""
-                ) {
-                    product.name = productName.value;
-                    product.quantity = productQuantity.value;
-                    product.price = productPrice.value;
+                if (productToUpdate) {
+                    productToUpdate.name = productName.value;
+                    productToUpdate.quantity = productQuantity.value;
+                    productToUpdate.price = productPrice.value;
+
+                    productName.value = "";
+                    productQuantity.value = "";
+                    productPrice.value = "";
+
+                    addEditButton.innerText = "Add new";
 
                     listProducts();
-                    console.log("Product updated");
                 }
             }
         }

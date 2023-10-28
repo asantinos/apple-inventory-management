@@ -36,9 +36,16 @@ export const listProducts = () => {
                 "add-edit-buttons-wrapper"
             );
 
-            productName.value = item.name;
-            productQuantity.value = item.quantity;
-            productPrice.value = item.price;
+            const index = inventory.find((product) => product.id === item.id);
+
+            if (index !== -1) {
+                productName.value = item.name;
+                productQuantity.value = item.quantity;
+                productPrice.value = item.price;
+            }
+
+            // Give the button an attribute to know which product is being edited (used in addEditProduct.js)
+            addEditButton.setAttribute("data-id", item.id);
 
             // CANCEL BUTTON
             if (!document.getElementById("cancel-button")) {
@@ -60,35 +67,6 @@ export const listProducts = () => {
             }
 
             addEditButton.innerText = "Update";
-
-            // UPDATE PRODUCT
-            const updateProduct = () => {
-                if (
-                    productName.value !== "" &&
-                    productQuantity.value !== "" &&
-                    productPrice.value !== ""
-                ) {
-                    // Search index of the product to edit
-                    const index = inventory.find(
-                        (product) => product.id === item.id
-                    );
-
-                    if (index !== -1) {
-                        item.name = productName.value;
-                        item.quantity = productQuantity.value;
-                        item.price = productPrice.value;
-
-                        listProducts();
-                        console.log("Product updated");
-                    }
-                }
-            };
-
-            addEditButton.addEventListener("click", () => {
-                if (addEditButton.innerText === "Update") {
-                    updateProduct();
-                }
-            });
         });
 
         // DELETE BUTTON
