@@ -25,7 +25,7 @@ export const listProducts = () => {
 
         nameCell.innerText = item.name;
         quantityCell.innerText = item.quantity;
-        priceCell.innerText = `$${item.price}`;
+        priceCell.innerText = `$${item.price.toFixed(2)}`;
 
         inventoryData.appendChild(dataRow);
 
@@ -66,6 +66,17 @@ export const listProducts = () => {
                     productQuantity.value = "";
                     productPrice.value = "";
                     addEditButton.innerText = "Add new";
+                });
+
+                // If the ESC key is pressed, remove the cancel button and empty the inputs
+                document.addEventListener("keydown", (event) => {
+                    if (event.key === "Escape") {
+                        editButtons.removeChild(cancelButton);
+                        productName.value = "";
+                        productQuantity.value = "";
+                        productPrice.value = "";
+                        addEditButton.innerText = "Add new";
+                    }
                 });
             }
 

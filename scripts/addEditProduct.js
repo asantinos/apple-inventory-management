@@ -19,8 +19,8 @@ export const addEditProduct = () => {
             inventory.push({
                 id: inventory.length + 1,
                 name: productName.value,
-                quantity: productQuantity.value,
-                price: productPrice.value,
+                quantity: parseInt(productQuantity.value),
+                price: parseFloat(productPrice.value),
             });
 
             listProducts();
@@ -36,7 +36,8 @@ export const addEditProduct = () => {
             actionsMessage.innerText = "Product added successfully!";
         } else {
             actionsMessage.classList.add("error-message");
-            actionsMessage.innerText = "Please fill all the fields";
+            actionsMessage.innerText =
+                "Please fill all the fields or introduce a valid number";
         }
     };
 
@@ -60,14 +61,8 @@ export const addEditProduct = () => {
 
                 if (productToUpdate) {
                     productToUpdate.name = productName.value;
-                    productToUpdate.quantity = productQuantity.value;
-                    productToUpdate.price = productPrice.value;
-
-                    productName.value = "";
-                    productQuantity.value = "";
-                    productPrice.value = "";
-
-                    addEditButton.innerText = "Add new";
+                    productToUpdate.quantity = parseInt(productQuantity.value);
+                    productToUpdate.price = parseFloat(productPrice.value);
 
                     listProducts();
                     showTotalInventory();
@@ -91,6 +86,19 @@ export const addEditProduct = () => {
         } else if (addEditButton.innerText === "Update") {
             updateProduct();
             console.log("Product updated");
+        }
+    });
+
+    // If enter key is pressed, add / update the product
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            if (addEditButton.innerText === "Add new") {
+                addNewProduct();
+                console.log("New product added");
+            } else if (addEditButton.innerText === "Update") {
+                updateProduct();
+                console.log("Product updated");
+            }
         }
     });
 };
