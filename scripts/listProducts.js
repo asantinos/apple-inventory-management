@@ -7,6 +7,7 @@ export const listProducts = () => {
     const productPrice = document.getElementById("product-price-input");
     const productQuantity = document.getElementById("product-quantity-input");
     const addEditButton = document.getElementById("add-edit-button");
+    const actionsMessage = document.getElementById("actions-message");
 
     // DELETE ALL ROWS TO AVOID DUPLICATES
     while (inventoryData.firstChild) {
@@ -89,6 +90,11 @@ export const listProducts = () => {
                     dataRow.remove();
 
                     showTotalInventory();
+
+                    actionsMessage.classList.remove("error-message");
+                    actionsMessage.classList.add("success-message");
+                    actionsMessage.innerText = "Product deleted successfully!";
+                    console.log("Product deleted successfully!");
                 }
             }
         });

@@ -7,7 +7,7 @@ export const addEditProduct = () => {
     const productQuantity = document.getElementById("product-quantity-input");
     const productPrice = document.getElementById("product-price-input");
     const addEditButton = document.getElementById("add-edit-button");
-    const editButtons = document.getElementById("add-edit-buttons-wrapper");
+    const actionsMessage = document.getElementById("actions-message");
 
     // ADD PRODUCT
     const addNewProduct = () => {
@@ -29,6 +29,14 @@ export const addEditProduct = () => {
             productName.value = "";
             productQuantity.value = "";
             productPrice.value = "";
+
+            // If the message has the error class, remove it and add the success class
+            actionsMessage.classList.remove("error-message");
+            actionsMessage.classList.add("success-message");
+            actionsMessage.innerText = "Product added successfully!";
+        } else {
+            actionsMessage.classList.add("error-message");
+            actionsMessage.innerText = "Please fill all the fields";
         }
     };
 
@@ -37,7 +45,9 @@ export const addEditProduct = () => {
         if (
             productName.value !== "" &&
             productQuantity.value !== "" &&
-            productPrice.value !== ""
+            productPrice.value !== "" &&
+            !isNaN(productQuantity.value) &&
+            !isNaN(productPrice.value)
         ) {
             // Get the id of the product to edit (set in listProducts.js)
             const productIdToUpdate = addEditButton.getAttribute("data-id");
@@ -61,16 +71,26 @@ export const addEditProduct = () => {
 
                     listProducts();
                     showTotalInventory();
+
+                    actionsMessage.classList.remove("error-message");
+                    actionsMessage.classList.add("success-message");
+                    actionsMessage.innerText = "Product updated successfully!";
                 }
             }
+        } else {
+            actionsMessage.classList.add("error-message");
+            actionsMessage.innerText =
+                "Please fill all the fields or introduce a valid number";
         }
     };
 
     addEditButton.addEventListener("click", () => {
         if (addEditButton.innerText === "Add new") {
             addNewProduct();
+            console.log("New product added");
         } else if (addEditButton.innerText === "Update") {
             updateProduct();
+            console.log("Product updated");
         }
     });
 };

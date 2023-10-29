@@ -67,7 +67,7 @@ button {
     gap: 10px;
     padding: 15px;
     border-radius: 15px;
-    background-color: #c9ee44;
+    background: linear-gradient(90deg, #c9ee44, #e6f8a4);
     font-weight: 600;
     cursor: pointer;
 }
@@ -89,6 +89,19 @@ button {
     padding: 10px;
     border-radius: 15px;
     border: none;
+}
+
+.success-message {
+    color: #30ce58;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-align: center;
+}
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-align: center;
 }
 
 /* MAIN */
