@@ -1,6 +1,6 @@
 @font-face {
     font-family: Soopafres;
-    src: url(../assets/fonts/soopafresh/soopafre.ttf);
+    src: url(../assets/fonts/soopafresh/soopafre.ttf) format("truetype");
 }
 
 * {
@@ -26,16 +26,15 @@ button {
     gap: 10px;
     border-radius: 15px;
     padding: 10px;
-
-    input {
-        width: 100%;
-        border: none;
-        font-size: 1em;
-        background-color: #f8f8f8;
-    }
-    input:focus {
-        outline: none;
-    }
+}
+.input-wrapper input {
+    width: 100%;
+    border: none;
+    font-size: 1em;
+    background-color: #f8f8f8;
+}
+.input-wrapper input:focus {
+    outline: none;
 }
 
 /* CONTAINER */
@@ -151,6 +150,10 @@ main {
 .search-wrapper {
     width: 450px;
     margin-top: 40px;
+}
+.search-wrapper input {
+    background-color: transparent;
+    border: none;
 }
 
 /* TABLE */
